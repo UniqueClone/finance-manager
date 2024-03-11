@@ -1,5 +1,5 @@
 # Sets the base image
-FROM rust:1.67
+FROM rust:1.76
 
 # Sets the working directory
 WORKDIR /src
