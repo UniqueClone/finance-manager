@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "lDAAaL8pRWHbnGlqb/s/bXFZMT7M53ULIqAUb6Jp/dNeLY1JAGRw2t5BYiuqBksrdnTQtZfc2pyH1Bar7o8cRA==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\ryanlynch\\Documents\\repos\\personal\\finance-manager\\finance-manager\\finance-manager.sqlproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ryanlynch\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\ryanlynch\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net46\\1.0.0\\microsoft.netframework.referenceassemblies.net46.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

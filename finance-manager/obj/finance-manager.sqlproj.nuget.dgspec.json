@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\ryanlynch\\Documents\\repos\\personal\\finance-manager\\finance-manager\\finance-manager.sqlproj": {}
+  },
+  "projects": {
+    "c:\\Users\\ryanlynch\\Documents\\repos\\personal\\finance-manager\\finance-manager\\finance-manager.sqlproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\ryanlynch\\Documents\\repos\\personal\\finance-manager\\finance-manager\\finance-manager.sqlproj",
+        "projectName": "finance-manager",
+        "projectPath": "c:\\Users\\ryanlynch\\Documents\\repos\\personal\\finance-manager\\finance-manager\\finance-manager.sqlproj",
+        "packagesPath": "C:\\Users\\ryanlynch\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\ryanlynch\\Documents\\repos\\personal\\finance-manager\\finance-manager\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ryanlynch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net46"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net46": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU5128"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net46": {
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}
