@@ -1,0 +1,40 @@
+import { Button, VerticalBox, LineEdit, ComboBox, TextEdit } from "std-widgets.slint";
+
+component CalculateButton {
+    // width: 100%;
+    Button {
+        height: 40px;
+        text: "Calculate";
+        primary: true;
+    }
+}
+
+export component AppWindow inherits Window {
+    background: #313e50;
+    GridLayout {
+        padding: 50px;
+        spacing: 25px;
+
+        Row {
+            Text {
+                text: "Hello, World!";
+                horizontal-alignment: center;
+                font-size: 24px;
+                font-weight: 900;
+            }
+        }
+
+        Row {
+            LineEdit {
+                font-size: 16px;
+                height: 40px;
+                placeholder-text: "Enter your number";
+            }
+        }
+
+        Row {
+            CalculateButton {
+            }
+        }
+    }
+}
