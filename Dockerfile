@@ -1,16 +1,14 @@
-# Sets the base image
-FROM rust:1.76
+# Use an official Rust runtime as a parent image
+FROM rust:1.77
 
-# Sets the working directory
-WORKDIR /src
+# Set the working directory in the container to /usr/src/myapp
+WORKDIR /usr/src/finance-manager
 
-# Copies the current directory contents into the container at /src
+# Copy the current directory contents into the container at /usr/src/myapp
 COPY . .
 
-# Installs the application
-RUN cargo install --path .
+# Build the application
+RUN cargo build --release
 
-# Runs the application
-# The array contains the command to run the application.
-# The elements of the array will be combined into a single command with spaces between the elements.
-CMD [ "finance-manager" ]
+# Set the startup command to run your binary
+CMD ["./target/release/finance-manager"]
