@@ -1,22 +1,15 @@
-import { Button, VerticalBox, LineEdit, ComboBox, TextEdit } from "std-widgets.slint";
-
-component CalculateButton {
-    // width: 100%;
-    Button {
-        height: 40px;
-        text: "Calculate";
-        primary: true;
-    }
-}
+import { Button, VerticalBox, LineEdit, ComboBox, TextEdit, GridBox } from "std-widgets.slint";
 
 export component AppWindow inherits Window {
+    in property <string> result: "";
+    callback calc-expenses(string);
     background: #313e50;
     GridLayout {
         padding: 50px;
         spacing: 25px;
-
         Row {
             Text {
+                max-width: 400px;
                 text: "Hello, World!";
                 horizontal-alignment: center;
                 font-size: 24px;
@@ -25,15 +18,51 @@ export component AppWindow inherits Window {
         }
 
         Row {
-            LineEdit {
+            house_price := LineEdit {
+                max-width: 400px;
                 font-size: 16px;
                 height: 40px;
+                horizontal-alignment: center;
                 placeholder-text: "Enter your number";
             }
         }
 
         Row {
-            CalculateButton {
+            Button {
+                max-width: 400px;
+                height: 40px;
+                text: "Calculate";
+                primary: true;
+                clicked => {
+                    calc-expenses(house_price.text);
+                }
+            }
+        }
+
+        Row {
+            VerticalBox {
+                Rectangle {
+                    max-width: 400px;
+                    min-width: 400px;
+                    height: 150px;
+                    background: #f2f2f2;
+                    Text {
+                        text: root.result;
+                        color: black;
+                        font-family: "Consolas";
+                        font-size: 16px;
+                        // font-weight: 900;
+                        animate x {
+                            duration: 500ms;
+                            easing: ease-in-out;
+                        }
+                        // animate y {
+                        //     duration: 250ms;
+                        //     delay: 500ms;
+                        //     easing: ease-in;
+                        // }
+                    }
+                }
             }
         }
     }
