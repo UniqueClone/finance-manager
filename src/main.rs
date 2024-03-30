@@ -16,11 +16,11 @@ fn main() {
         .trim()
         .parse()
         .expect("Please enter a valid number");
+
     let deposit: f64 = house_price * DEPOSITPER;
-    // let solicitor_fees: f64 = number * SOLFEES;
-    // let inspector_fees: f64 = number * INSPECTFEES;
     let stamp_duty: f64 = house_price * STAMPDUTYPER;
     let savings_required = deposit + SOLFEES + EVALFEES + SURVEYFEES + stamp_duty;
+
     let result = format!("\nDeposit:\t\t €{:.2}\nSolicitor Fees:\t\t €{:.2}\nEvaluation Fees:\t €{:.2}\nSurveyor Fees:\t\t €{:.2}\nStamp Duty:\t\t €{:.2}\n\nRequired Savings:\t €{:.2}", deposit, SOLFEES, EVALFEES, SURVEYFEES, stamp_duty, savings_required);
     println!("{}\n", result);
 }
