@@ -43,7 +43,7 @@ pub fn calculate_savings_for_house(verbose: bool) {
         let mut result = String::new();
 
         if verbose {
-            result.push_str(&format!("Deposit:\t\t €{:.2}\n", deposit));
+            result.push_str(&format!("\nDeposit:\t\t €{:.2}\n", deposit));
             result.push_str(&format!("Solicitor Fees:\t\t €{:.2}\n", SOLFEES));
             result.push_str(&format!("Evaluation Fees:\t €{:.2}\n", EVALFEES));
             result.push_str(&format!("Surveyor Fees:\t\t €{:.2}\n", SURVEYFEES));
