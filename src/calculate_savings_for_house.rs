@@ -9,13 +9,13 @@ const STAMPDUTYPER: f64 = 0.01;
 pub fn calculate_savings_for_house() {
     println!("\nEnter the price of the house: €");
 
-    let mut house_price_input = String::new();
+    let mut house_price = String::new();
 
     io::stdin()
-        .read_line(&mut house_price_input)
+        .read_line(&mut house_price)
         .expect("Failed to read line");
 
-    let house_price: f64 = house_price_input
+    let house_price: f64 = house_price
         .trim()
         .parse()
         .expect("Please enter a valid number");
