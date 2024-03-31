@@ -11,7 +11,7 @@ const STAMPDUTYPER: f64 = 0.01;
  */
 pub fn calculate_savings_for_house(verbose: bool) {
     loop {
-        println!("\nEnter the price of the house: €");
+        println!("\nEnter the price of the house (or 'q' to quit):");
 
         let mut house_price = String::new();
 
@@ -19,6 +19,11 @@ pub fn calculate_savings_for_house(verbose: bool) {
         io::stdin()
             .read_line(&mut house_price)
             .expect("Failed to read line");
+
+        if house_price.trim() == "q" {
+            println!("\nGoodbye! Best of luck with your house purchase!\n");
+            break;
+        }
 
         // Convert the input to a number
         let house_price: f64 = match house_price.trim().parse() {
@@ -47,21 +52,7 @@ pub fn calculate_savings_for_house(verbose: bool) {
 
         result.push_str(&format!("\nRequired Savings:\t €{:.2}", savings_required));
 
-        println!("{}\n", result);
-
-        // Ask the user if they want to calculate again
-        println!("Do you want to calculate the savings for another house? (y/n)");
-
-        let mut answer = String::new();
-
-        io::stdin()
-            .read_line(&mut answer)
-            .expect("Failed to read line");
-
-        if answer.trim() != "y" {
-            println!("\nGoodbye! Best of luck with your house purchase!\n");
-            break;
-        }
+        println!("{}", result);
     }
 }
 
