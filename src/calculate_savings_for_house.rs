@@ -9,7 +9,7 @@ const STAMPDUTYPER: f64 = 0.01;
 /**
  * Calculate the savings required for a house.
  */
-pub fn calculate_savings_for_house() {
+pub fn calculate_savings_for_house(verbose: bool) {
     loop {
         println!("\nEnter the price of the house: €");
 
@@ -35,7 +35,18 @@ pub fn calculate_savings_for_house() {
         let savings_required = calculate_total_fees(deposit, stamp_duty);
 
         // Print the result
-        let result = format!("\nDeposit:\t\t €{:.2}\nSolicitor Fees:\t\t €{:.2}\nEvaluation Fees:\t €{:.2}\nSurveyor Fees:\t\t €{:.2}\nStamp Duty:\t\t €{:.2}\n\nRequired Savings:\t €{:.2}", deposit, SOLFEES, EVALFEES, SURVEYFEES, stamp_duty, savings_required);
+        let mut result = String::new();
+
+        if verbose {
+            result.push_str(&format!("Deposit:\t\t €{:.2}\n", deposit));
+            result.push_str(&format!("Solicitor Fees:\t\t €{:.2}\n", SOLFEES));
+            result.push_str(&format!("Evaluation Fees:\t €{:.2}\n", EVALFEES));
+            result.push_str(&format!("Surveyor Fees:\t\t €{:.2}\n", SURVEYFEES));
+            result.push_str(&format!("Stamp Duty:\t\t €{:.2}\n", stamp_duty));
+        }
+
+        result.push_str(&format!("\nRequired Savings:\t €{:.2}", savings_required));
+
         println!("{}\n", result);
 
         // Ask the user if they want to calculate again
