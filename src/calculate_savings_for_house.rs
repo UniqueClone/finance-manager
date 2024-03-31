@@ -9,9 +9,9 @@ const STAMPDUTYPER: f64 = 0.01;
 /**
  * Calculate the savings required for a house.
  */
-pub fn calculate_savings_for_house(verbose: bool) {
+pub fn calculate_savings_for_house(mut verbose: bool) {
     loop {
-        println!("\nEnter the price of the house (or 'q' to quit):");
+        println!("\nEnter the price of the house (or 'q' to quit, 'd' to toggle detailed output):");
 
         let mut house_price = String::new();
 
@@ -23,6 +23,16 @@ pub fn calculate_savings_for_house(verbose: bool) {
         if house_price.trim() == "q" {
             println!("\nGoodbye! Best of luck with your house purchase!\n");
             break;
+        } else if house_price.trim() == "d" {
+            verbose = !verbose;
+            println!(
+                "\nDetailed output is now {}.\n",
+                if verbose { "enabled" } else { "disabled" }
+            );
+            continue;
+        } else if house_price.trim().is_empty() {
+            println!("Please enter a valid number.");
+            continue;
         }
 
         // Convert the input to a number
