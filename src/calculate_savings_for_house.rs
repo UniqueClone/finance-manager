@@ -37,7 +37,7 @@ pub fn calculate_savings_for_house(mut verbose: bool) {
         }
 
         // Convert the input to a number
-        let house_price: f64 = match house_price.trim().parse() {
+        let house_price: f64 = match house_price.trim().replace(",", "").parse() {
             Ok(num) => num,
             Err(_) => {
                 println!("Please enter a valid number.");
