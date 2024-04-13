@@ -85,7 +85,7 @@ pub fn calculate_savings_for_house(mut verbose: bool) {
         result.push_str(&format!("\nRequired Savings:\t €{}", savings_required));
 
         println!("{}", result);
-        println!("Note: All numbers are rounded to the nearest whole number.")
+        println!("\nNote: All numbers are rounded to the nearest whole number.")
     }
 }
 
