@@ -37,7 +37,7 @@ pub fn calculate_savings_for_house(mut verbose: bool) {
         }
 
         // Convert the input to a number
-        let house_price: f64 = match house_price.trim().replace(",", "").parse() {
+        let house_price: f64 = match remove_symbols_from_string(house_price).parse() {
             Ok(num) => num,
             Err(_) => {
                 println!("Please enter a valid number.");
@@ -98,10 +98,27 @@ fn calculate_total_fees(deposit: f64, stamp_duty: f64) -> f64 {
     return savings_required;
 }
 
+/**
+ * Convert a number to a currency string.
+ */
 fn convert_number_to_currency(number: f64) -> String {
     return unsafe {
         number
             .to_int_unchecked::<i32>()
             .to_formatted_string(&Locale::en)
     };
+}
+
+/**
+ * Remove symbols from a string.
+ * Removes the following symbols: ',', '.', '€', '$', ' '.
+ */
+fn remove_symbols_from_string(string: String) -> String {
+    return string
+        .trim()
+        .replace(",", "")
+        .replace(".", "")
+        .replace("€", "")
+        .replace("$", "")
+        .replace(" ", "");
 }
