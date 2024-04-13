@@ -1,3 +1,4 @@
+use num_format::{Locale, ToFormattedString};
 use std::io;
 
 const DEPOSITPER: f64 = 0.1;
@@ -53,16 +54,38 @@ pub fn calculate_savings_for_house(mut verbose: bool) {
         let mut result = String::new();
 
         if verbose {
-            result.push_str(&format!("\nDeposit:\t\t €{:.2}\n", deposit));
-            result.push_str(&format!("Solicitor Fees:\t\t €{:.2}\n", SOLFEES));
-            result.push_str(&format!("Evaluation Fees:\t €{:.2}\n", EVALFEES));
-            result.push_str(&format!("Surveyor Fees:\t\t €{:.2}\n", SURVEYFEES));
-            result.push_str(&format!("Stamp Duty:\t\t €{:.2}\n", stamp_duty));
+            result.push_str(&format!(
+                "\nDeposit:\t\t €{}\n",
+                convert_number_to_currency(deposit)
+            ));
+            result.push_str(&format!(
+                "Solicitor Fees:\t\t €{}\n",
+                convert_number_to_currency(SOLFEES)
+            ));
+            result.push_str(&format!(
+                "Evaluation Fees:\t €{}\n",
+                convert_number_to_currency(EVALFEES)
+            ));
+            result.push_str(&format!(
+                "Surveyor Fees:\t\t €{}\n",
+                convert_number_to_currency(SURVEYFEES)
+            ));
+            result.push_str(&format!(
+                "Stamp Duty:\t\t €{}\n",
+                convert_number_to_currency(stamp_duty)
+            ));
         }
 
-        result.push_str(&format!("\nRequired Savings:\t €{:.2}", savings_required));
+        let savings_required = unsafe {
+            savings_required
+                .to_int_unchecked::<i32>()
+                .to_formatted_string(&Locale::en)
+        };
+
+        result.push_str(&format!("\nRequired Savings:\t €{}", savings_required));
 
         println!("{}", result);
+        println!("Note: All numbers are rounded to the nearest whole number.")
     }
 }
 
@@ -73,4 +96,12 @@ fn calculate_total_fees(deposit: f64, stamp_duty: f64) -> f64 {
     let savings_required = deposit + SOLFEES + EVALFEES + SURVEYFEES + stamp_duty;
 
     return savings_required;
+}
+
+fn convert_number_to_currency(number: f64) -> String {
+    return unsafe {
+        number
+            .to_int_unchecked::<i32>()
+            .to_formatted_string(&Locale::en)
+    };
 }
