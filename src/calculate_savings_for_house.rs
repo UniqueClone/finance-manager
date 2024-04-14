@@ -98,6 +98,12 @@ fn calculate_total_fees(deposit: f64, stamp_duty: f64) -> f64 {
     return savings_required;
 }
 
+#[test]
+fn test_calculate_total_fees() {
+    assert_eq!(calculate_total_fees(100000.0, 1000.0), 104150.0);
+    assert_eq!(calculate_total_fees(200000.0, 2000.0), 205150.0);
+}
+
 /**
  * Convert a number to a currency string.
  */
@@ -109,16 +115,34 @@ fn convert_number_to_currency(number: f64) -> String {
     };
 }
 
+#[test]
+fn test_convert_number_to_currency() {
+    assert_eq!(convert_number_to_currency(2000.0), "2,000");
+    assert_eq!(convert_number_to_currency(1000000.0), "1,000,000");
+}
+
 /**
  * Remove symbols from a string.
- * Removes the following symbols: ',', '.', '€', '$', ' '.
+ * Removes the following symbols: ',', '€', '$', ' '.
  */
 fn remove_symbols_from_string(string: String) -> String {
     return string
         .trim()
         .replace(",", "")
-        .replace(".", "")
         .replace("€", "")
         .replace("$", "")
         .replace(" ", "");
+}
+
+#[test]
+fn test_remove_symbols_from_string() {
+    assert_eq!(
+        remove_symbols_from_string("€1,000.00 ".to_string()),
+        "1000.00"
+    );
+
+    assert_eq!(
+        remove_symbols_from_string("€ 1,000.00".to_string()),
+        "1000.00"
+    );
 }
