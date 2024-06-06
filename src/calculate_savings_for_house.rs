@@ -1,24 +1,24 @@
 use num_format::{Locale, ToFormattedString};
-use std::env;
+// use std::env;
 use std::fs;
 use std::io;
 
-const DEPOSITPER: f64 = 0.1;
-const SOLFEES: f64 = 3400.0;
-const EVALFEES: f64 = 150.0;
-const SURVEYFEES: f64 = 500.0;
-const SEARCHFEES: f64 = 250.0;
-const STAMPDUTYPER: f64 = 0.01;
+// const DEPOSITPER: f64 = 0.1;
+// const SOLFEES: f64 = 3400.0;
+// const EVALFEES: f64 = 150.0;
+// const SURVEYFEES: f64 = 500.0;
+// const SEARCHFEES: f64 = 250.0;
+// const STAMPDUTYPER: f64 = 0.01;
 
 fn load_fees() -> Result<(f64, f64, f64, f64, f64, f64), String> {
-    let args: Vec<String> = env::args().collect();
+    // let _args: Vec<String> = env::args().collect();
 
     // if args.len() != 2 {
     //     return Err("Please provide a file path.".to_string());
     // }
 
     let file_path =
-        "C:\\Users\\ryanlynch\\Documents\\repos\\personal\\finance-manager\\src\\feesbreakdown.txt"
+        ".\\src\\feesbreakdown.txt"
             .to_string();
 
     let contents = match fs::read_to_string(file_path) {
